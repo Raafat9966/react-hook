@@ -11,10 +11,17 @@
 			a.nav-link {
 				color: $base-color;
 				button {
+					padding: 2px 10px;
 					color: $base-color;
+					appearance: none;
 					border: none;
+					outline: none;
 					border-radius: 2rem;
 					background-color: $second-background;
+					&:hover {
+						box-shadow: 1px 2px 5px 2px #690077,
+							-1px -2px 5px 2px #690077;
+					}
 				}
 			}
 		}
@@ -22,8 +29,8 @@
 }
 
 .form-div {
-	font-size: 1.5rem;
-	height: 100vh;
+	font-size: 1.2rem;
+	height: 75vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -32,7 +39,7 @@
 		display: block;
 		position: relative;
 		border: 1 black solid;
-		border-radius: 2rem;
+		border-radius: 1rem;
 		box-shadow: 1px 2px 5px 2px #888888, -1px -2px 5px 2px #888888;
 	}
 	form:after {
@@ -44,14 +51,32 @@
 		text-align: center;
 		.error {
 			background-color: rgba(255, 0, 0, 0.342);
-			border-radius: 2rem;
+			border-radius: 1rem;
 			color: #333333;
 		}
 		input {
+			padding: 3px 12px;
+			margin: 1rem;
 			appearance: none;
 			background-color: none;
 			border: none;
 			outline: none;
+			border-radius: 1rem;
+			box-shadow: inset 1px 2px 5px #888888, inset -1px -2px 5px #888888;
+			&::placeholder {
+				text-align: center;
+				color: rgb(180, 180, 180);
+			}
+		}
+		button {
+			padding: 5px 20px;
+			color: $base-color;
+			border: none;
+			border-radius: 2rem;
+			background-color: $second-background;
+			&:hover {
+				box-shadow: 1px 2px 5px 2px #888888, -1px -2px 5px 2px #888888;
+			}
 		}
 	}
 }

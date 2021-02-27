@@ -1,18 +1,37 @@
 import { useState } from "react";
 
-export const LoginForm = ({ Login, error }) => {
+export const LoginForm = () => {
 	const [details, setDetails] = useState({
 		name: "",
 		email: "",
 		password: "",
 	});
+	const [error, setError] = useState("");
 
+	const Login = (details) => {
+		if (details.email && details.password) {
+			console.log(details.name);
+		} else {
+			setError("Details do not match");
+		}
+	};
+	const Logout = () => {
+		console.log("logout");
+		setDetails({ name: "", email: "", password: "" });
+	};
 	const submitHandler = (e) => {
 		e.preventDefault();
 		Login(details);
 	};
 
-	return (
+	return details.password !== "" ? (
+		<div className="welcome">
+			<h2>
+				Welcome, <span>{details.name}</span>
+			</h2>
+			<button onClick={Logout}>logout</button>
+		</div>
+	) : (
 		<div className="form-div">
 			<form action="" onSubmit={submitHandler}>
 				<div className="form-inner">
@@ -23,7 +42,7 @@ export const LoginForm = ({ Login, error }) => {
 							type="text"
 							name="name"
 							id="name"
-							placeholder="Name"
+							placeholder="name"
 							onChange={(e) =>
 								setDetails({ ...details, name: e.target.value })
 							}
@@ -35,7 +54,7 @@ export const LoginForm = ({ Login, error }) => {
 							type="email"
 							name="email"
 							id="email"
-							placeholder="Email"
+							placeholder="email"
 							onChange={(e) =>
 								setDetails({
 									...details,
@@ -50,7 +69,7 @@ export const LoginForm = ({ Login, error }) => {
 							type="password"
 							name="password"
 							id="password"
-							placeholder="Password"
+							placeholder="password"
 							onChange={(e) =>
 								setDetails({
 									...details,
@@ -60,7 +79,7 @@ export const LoginForm = ({ Login, error }) => {
 							value={details.password}
 						/>
 					</div>
-					<input type="submit" value="LOGIN" />
+					<button type="submit">Submit</button>
 				</div>
 			</form>
 		</div>
