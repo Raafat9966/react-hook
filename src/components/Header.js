@@ -1,6 +1,6 @@
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 // import { useState, useEffect } from "react";
-import logo from "../img/logo.png";
+import logo from "../assets/img/logo.png";
 
 export const Header = () => {
 	return (
@@ -18,9 +18,12 @@ export const Header = () => {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="ml-auto">
-						<Nav.Link href="#features">Features</Nav.Link>
-						<Nav.Link href="#pricing">Pricing</Nav.Link>
-						<Nav.Link href="#pricing">Contact me</Nav.Link>
+						<Nav.Link href="#features">About me</Nav.Link>
+						<Nav.Link href="#pricing">Projects</Nav.Link>
+						<Nav.Link href="#">
+							{" "}
+							<button>Contact me</button>
+						</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>

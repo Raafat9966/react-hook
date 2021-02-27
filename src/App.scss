@@ -1,0 +1,57 @@
+@import "./assets/styles/_variables.scss";
+
+.navbar {
+	padding: 0 2rem;
+	background-color: $base-background;
+	a.navbar-brand {
+		padding: 0;
+	}
+	.navbar-collapse {
+		.navbar-nav {
+			a.nav-link {
+				color: $base-color;
+				button {
+					color: $base-color;
+					border: none;
+					border-radius: 2rem;
+					background-color: $second-background;
+				}
+			}
+		}
+	}
+}
+
+.form-div {
+	font-size: 1.5rem;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	form {
+		padding: 2rem;
+		display: block;
+		position: relative;
+		border: 1 black solid;
+		border-radius: 2rem;
+		box-shadow: 1px 2px 5px 2px #888888, -1px -2px 5px 2px #888888;
+	}
+	form:after {
+		content: "";
+		display: block;
+		position: absolute;
+	}
+	.form-inner {
+		text-align: center;
+		.error {
+			background-color: rgba(255, 0, 0, 0.342);
+			border-radius: 2rem;
+			color: #333333;
+		}
+		input {
+			appearance: none;
+			background-color: none;
+			border: none;
+			outline: none;
+		}
+	}
+}
