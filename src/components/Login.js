@@ -80,6 +80,7 @@ export const LoginForm = () => {
 						/>
 					</div>
 					<button type="submit">Submit</button>
+					<a href="/register">register</a>
 				</div>
 			</form>
 		</div>

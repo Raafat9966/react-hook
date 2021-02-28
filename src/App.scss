@@ -69,6 +69,7 @@
 			}
 		}
 		button {
+			margin-left: 3rem;
 			padding: 5px 20px;
 			color: $base-color;
 			border: none;
@@ -77,6 +78,11 @@
 			&:hover {
 				box-shadow: 1px 2px 5px 2px #888888, -1px -2px 5px 2px #888888;
 			}
+		}
+		a {
+			position: relative;
+			top: 25px;
+			left: 40px;
 		}
 	}
 }

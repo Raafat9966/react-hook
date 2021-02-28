@@ -1,14 +1,15 @@
 import { useState } from "react";
 
-export default function RegisterForm() {
+export function RegisterForm() {
 	const [data, setData] = useState({ name: "", email: "", password: "" });
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		RegisterForm(data);
+		console.log(data);
+		// RegisterForm(data);
 	};
 	return (
-		<div>
+		<div className="form-div" onSubmit={submitHandler}>
 			<form>
 				<div className="form-inner">
 					<h2>Register</h2>
@@ -27,7 +28,7 @@ export default function RegisterForm() {
 						<input
 							type="email"
 							name="email"
-							placeholder="name"
+							placeholder="email"
 							onChange={(e) =>
 								setData({ ...data, email: e.target.value })
 							}
@@ -38,7 +39,7 @@ export default function RegisterForm() {
 						<input
 							type="password"
 							name="password"
-							placeholder="name"
+							placeholder="password"
 							onChange={(e) =>
 								setData({ ...data, password: e.target.value })
 							}
@@ -46,6 +47,7 @@ export default function RegisterForm() {
 						/>
 					</div>
 					<button type="submit">Submit</button>
+					<a href="/">login</a>
 				</div>
 			</form>
 		</div>
