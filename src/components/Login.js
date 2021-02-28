@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 export const LoginForm = () => {
@@ -8,30 +9,25 @@ export const LoginForm = () => {
 	});
 	const [error, setError] = useState("");
 
-	const Login = (details) => {
-		if (details.email && details.password) {
-			console.log(details.name);
-		} else {
-			setError("Details do not match");
-		}
-	};
+	// const Login = (details) => {
+	// 	if (details.email && details.password) {
+	// 		console.log(details.name);
+	// 	} else {
+	// 		setError("Details do not match");
+	// 	}
+	// };
 	const Logout = () => {
 		console.log("logout");
-		setDetails({ name: "", email: "", password: "" });
+		setDetails({ name: "", password: "" });
 	};
 	const submitHandler = (e) => {
 		e.preventDefault();
-		Login(details);
+		axios
+			.post("http://192.168.0.2:8080/user/login", details)
+			.then((res) => console.log(res.data.name));
 	};
 
-	return details.password !== "" ? (
-		<div className="welcome">
-			<h2>
-				Welcome, <span>{details.name}</span>
-			</h2>
-			<button onClick={Logout}>logout</button>
-		</div>
-	) : (
+	return (
 		<div className="form-div">
 			<form action="" onSubmit={submitHandler}>
 				<div className="form-inner">
@@ -47,21 +43,6 @@ export const LoginForm = () => {
 								setDetails({ ...details, name: e.target.value })
 							}
 							value={details.name}
-						/>
-					</div>
-					<div className="form-group">
-						<input
-							type="email"
-							name="email"
-							id="email"
-							placeholder="email"
-							onChange={(e) =>
-								setDetails({
-									...details,
-									email: e.target.value,
-								})
-							}
-							value={details.email}
 						/>
 					</div>
 					<div className="form-group">

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 export function RegisterForm() {
@@ -6,7 +7,9 @@ export function RegisterForm() {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		console.log(data);
-		// RegisterForm(data);
+		axios
+			.post("http://192.168.0.2:8080/user/register", data)
+			.then((res) => console.log(res.data));
 	};
 	return (
 		<div className="form-div" onSubmit={submitHandler}>
