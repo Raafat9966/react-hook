@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 export const LoginForm = () => {
 	const [details, setDetails] = useState({
 		name: "",
-		email: "",
 		password: "",
 	});
 	const [error, setError] = useState("");
@@ -16,20 +16,20 @@ export const LoginForm = () => {
 	// 		setError("Details do not match");
 	// 	}
 	// };
-	const Logout = () => {
-		console.log("logout");
-		setDetails({ name: "", password: "" });
-	};
+	// const Logout = () => {
+	// 	console.log("logout");
+	// 	setDetails({ name: "", password: "" });
+	// };
 	const submitHandler = (e) => {
 		e.preventDefault();
-		axios
-			.post("http://192.168.0.2:8080/user/login", details)
-			.then((res) => console.log(res.data.name));
+		axios.post("http://localhost:8080/user/login", details).then((res) => {
+			console.log(res.data);
+		});
 	};
 
 	return (
 		<div className="form-div">
-			<form action="" onSubmit={submitHandler}>
+			<form onSubmit={submitHandler}>
 				<div className="form-inner">
 					<h2>login</h2>
 					{error !== "" ? <div className="error">{error}</div> : ""}
