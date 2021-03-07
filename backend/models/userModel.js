@@ -22,7 +22,16 @@ const User = mongoose.connection.model("accounts", schema);
 
 export const loginUser = async (name, password) => {
 	let user = User.findOne({ name });
-	return user;
+	if (!user) {
+		return "user is not registered";
+	} else {
+		let result = bcrypt.compareSync(password, user.password);
+		if (!result) {
+			return "password doesn't match";
+		} else {
+			return user;
+		}
+	}
 };
 
 export const registerUser = async (name, email, password) => {
@@ -32,6 +41,5 @@ export const registerUser = async (name, email, password) => {
 		email,
 		password: hash,
 	});
-	await user.save();
-	return user;
+	return await user.save();
 };
