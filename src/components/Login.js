@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import Cookies from "js-cookie";
 
 export const LoginForm = () => {
 	const [details, setDetails] = useState({
