@@ -1,5 +1,6 @@
 // import axios from "axios";
 import { Header } from "./components/Header";
+import { BrowserRouter as Router } from "react-router-dom";
 import Form from "./components/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
@@ -7,8 +8,10 @@ import "./App.scss";
 const App = () => {
 	return (
 		<div>
-			<Header />
-			<Form />
+			<Router>
+				<Header />
+				<Form />
+			</Router>
 		</div>
 	);
 };

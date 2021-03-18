@@ -7,9 +7,10 @@ function Form() {
 	const [isLogin, setIsLogin] = useState(false);
 	return (
 		<BrowserRouter>
-			<Route path="/" exact component={LoginForm} />
-			<Route path="/register" component={RegisterForm} />
-			<Switch></Switch>
+			<Switch>
+				<Route path="/" exact component={LoginForm} />
+				<Route path="/register" component={RegisterForm} />
+			</Switch>
 		</BrowserRouter>
 	);
 }

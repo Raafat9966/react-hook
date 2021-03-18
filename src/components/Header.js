@@ -1,4 +1,5 @@
 import { Navbar, Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 // import { useState, useEffect } from "react";
 import logo from "../assets/img/logo.png";
 
@@ -18,8 +19,20 @@ export const Header = () => {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="ml-auto">
-						<Nav.Link href="#features">About me</Nav.Link>
-						<Nav.Link href="#pricing">Projects</Nav.Link>
+						<Nav.Link>
+							<NavLink activeClassName="active" exact to="/">
+								About me
+							</NavLink>
+						</Nav.Link>
+						<Nav.Link>
+							<NavLink
+								activeClassName="active"
+								exact
+								to="/register"
+							>
+								Projects
+							</NavLink>
+						</Nav.Link>
 						<Nav.Link href="#">
 							{" "}
 							<button>Contact me</button>
